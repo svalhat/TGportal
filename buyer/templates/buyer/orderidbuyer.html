@@ -1,0 +1,161 @@
+{% extends "layouts/base.html" %}
+
+{% block title %}
+    Buyer Order ID
+{% endblock %}
+
+{% block heading %}
+    <h1>Buyer Order ID</h1>
+{% endblock %}
+
+{% block content %}
+    <div class="pcoded-content">
+        <div class="pcoded-inner-content">
+            <div class="page-header">
+            <div class="page-block">
+                <div class="row align-items-center">
+                    <div class="col-md-12">
+                        <div class="page-header-title">
+                            <h5 class="m-b-10">Buyer View Order</h5>
+                        </div>
+                        <ul class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="/"><i class="feather icon-home"></i></a></li>
+                            <li class="breadcrumb-item"><a href="javascript:">Buyer</a></li>
+                            <li class="breadcrumb-item"><a href="javascript:">Order Details</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="main-body">
+                <div class="page-wrapper">
+                    <div class="row">
+                            {% csrf_token %}
+                            <div class="col-sm-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h5>Edit Order Details</h5>
+                                    </div>
+                                    <div class="card">
+                                        <div class="card-header" id="headingOne">
+                                            <h5 class="mb-0">
+                                                <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                                    Order Details
+                                                </button>
+                                            </h5>
+                                        </div>
+                                        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                                            <div class="card-body">
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <form class="needs-validation">
+                                                            <div class="form-group">
+                                                                <label for="colFormLabelSm">Name</label>
+                                                                <input type="name" class="form-control" id="colFormLabelSm" aria-describedby="nameHelp" placeholder="" required>
+                                                                <div class="valid-feedback">
+                                                                        Name is required!
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="exampleFormControlTextarea1">Address</label>
+                                                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                  <label for="example-tel-input">Contact Number</label>
+                                                                  <input class="form-control" type="tel" id="example-tel-input" aria-describedby="numberHelp" placeholder="" required>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="quantity1">Quantity</label>
+                                                                <input type="number" class="form-control" id="quantity1" aria-describedby="numberHelp" placeholder="" required>
+                                                                <div class="valid-feedback">
+                                                                    Quantity is required!
+                                                                </div>
+                                                            </div>
+                                                            <button type="submit" class="btn btn-primary">Save</button>
+                                                        </form>
+                                                    </div>
+                                            <div class="col-md-6">
+                                                <form>
+                                                    <div class="form-group">
+                                                        <label for="validationCustom03">Status</label>
+                                                        <select class="form-control" id="validationCustom03" required>
+                                                            <option>Nothing Selected</option>
+                                                            <option>Done</option>
+                                                            <option>Pending</option>
+                                                            <option>Cancelled</option>
+                                                        </select>
+                                                        <div class="valid-feedback">
+                                                            Status is required!
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="exampleFormControlSelect1" >City</label>
+                                                        <select class="form-control" id="exampleFormControlSelect1" required>
+                                                            <option>Nothing Selected</option>
+                                                            <option>Pune</option>
+                                                            <option>Mumbai</option>
+                                                            <option>Pimpri</option>
+                                                            <option>Nashik</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="valid-feedback">
+                                                        City Name is required!
+                                                    </div>
+                                                    <div class="form-row">
+                                                         <label for="amount" > Amount </label>
+                                                         <input type="number" class="form-control" id="amount" placeholder="" required>
+                                                    </div>
+                                                    <div class="valid-feedback">
+                                                        Amount is required!
+                                                    </div>
+                                                    <div class="form-row">
+                                                         <label for="courierCharges" >Courier Charges</label>
+                                                         <input type="number" class="form-control" id="courierCharges" placeholder="" required></br>
+                                                    </div>
+                                                    <div class="valid-feedback">
+                                                        Courier Charges are required!
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="tax1">Tax</label>
+                                                        <input type="number" class="form-control" id="tax1" aria-describedby="nameHelp" placeholder="" required>
+                                                        <div class="valid-feedback">
+                                                            Tax is required!
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                    <div class="card-header" id="headingThree">
+                                    </div>
+                                    <div id="collapseThree" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordion">
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <form>
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <div>
+                                                                    <a href="/charts-load" class="btn btn-primary btn-round ">View Tracking ID</a>
+                                                                    <a href="/charts-load" class="btn btn-primary btn-round ">Download Invoice</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <br>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock content %}
+
+

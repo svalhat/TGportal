@@ -1,0 +1,241 @@
+{% extends "layouts/base.html" %}
+
+{% block title %}
+Add Product
+{% endblock %}
+
+{% block heading %}
+    <h1> Add Product</h1>
+{% endblock %}
+
+{% block content %}
+    <div class="pcoded-content">
+        <div class="pcoded-inner-content">
+            <div class="page-header">
+            <div class="page-block">
+                <div class="row align-items-center">
+                    <div class="col-md-12">
+                        <div class="page-header-title">
+                            <h5 class="m-b-10">Add Product</h5>
+                        </div>
+                        <ul class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="/"><i class="feather icon-home"></i></a></li>
+                            <li class="breadcrumb-item"><a href="javascript:">Product</a></li>
+                            <li class="breadcrumb-item"><a href="javascript:">Add edit Product</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="main-body">
+            <div class="page-wrapper">
+                <div class="row">
+                    {% csrf_token %}
+                    <div class="col-sm-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5>Add product</h5>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" id="headingOne">
+                                    <h5 class="mb-0">
+                                        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                            Add/edit product
+                                        </button>
+                                    </h5>
+                                </div>
+                                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <form class="needs-validation">
+                                                    <div class="form-group">
+                                                        <label for="colFormLabelSm">Product Name</label>
+                                                        <input type="name" class="form-control" id="colFormLabelSm" aria-describedby="nameHelp" placeholder="" required>
+                                                    <!--    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+                                                        <div class="valid-feedback">
+                                                            Product Name is required!
+                                                        </div>
+                                                    </div>
+                                                     <div class="form-group">
+                                                        <label for="colFormLabelSm">Product Cost</label>
+                                                        <input type="number" class="form-control" id="colFormLabelSm" aria-describedby="nameHelp" placeholder="" required>
+                                                    <!--    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+                                                        <div class="valid-feedback">
+                                                            Product cost is required!
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="exampleFormControlTextarea1">Description</label>
+                                                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" required></textarea>
+                                                        <div class="valid-feedback">
+                                                            Description is required!
+                                                        </div>
+                                                    </div>
+
+                                                </form>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <form class="needs-validation">
+                                                    <div class="form-group">
+                                                        <label for="validationCustom03">Category</label>
+                                                        <select class="form-control" id="validationCustom03" required>
+                                                            <option> Nothing Selected</option>
+                                                            <option>Product</option>
+                                                            <option></option>
+                                                            <option></option>
+                                                            <option></option>
+                                                        </select>
+                                                    </div><br>
+                                                    <div class="valid-feedback">
+                                                        Category Name is required!
+                                                    </div>
+
+                                                     <div> <label>Photo</label>
+
+                                                <input type="file" id="myFile" name="filename">
+
+                                     </div>
+
+                                <div><br><br><br>
+
+
+                                 <label>Product Keyword</label>
+                                    <select class="selectpicker" multiple id="multiFormSelect1">
+                                                                    <option>Product</option>
+                                                                    <option>1</option>
+                                                                    <option>2</option>
+                                                                </select>
+                                                            </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                             <div class="pcoded-content">
+
+        <div class="main-body">
+            <div class="page-wrapper">
+                <div class="row">
+                    {% csrf_token %}
+                    <div class="col-sm-12">
+                        <div class="card">
+
+                            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <form class="needs-validation">
+                                                    <div class="form-group">
+                                                <label for="exampleFormControlSelect1">Delivery Type</label>
+                                                <select class="form-control" id="exampleFormControlSelect1">
+                                                    <option>self</option>
+                                                    <option>Delivery parteners</option>
+                                                </select>
+                                            </div>
+
+                                            </select>
+                                             <form class="form-group mb-2">
+                                        <input type="radio"  name="customRadio" class="custom-control-input">
+                                          <div class="custom-control custom-radio">
+                                            <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
+                                            <label class="custom-control-label" for="customRadio1">Within city</label>
+                                            </div>
+                                            <div class="custom-control custom-radio">
+                                            <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
+                                            <label class="custom-control-label" for="customRadio2">Outside city</label>
+                                            </div>
+
+                                                     <div class="form-group">
+                                                        <label for="colFormLabelSm">Courier Cost</label>
+                                                        <input type="number" class="form-control" id="colFormLabelSm" aria-describedby="nameHelp" placeholder="" required>
+                                                    <!--    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+                                                        <div class="valid-feedback">
+                                                            Courier cost is required!
+                                                        </div>
+                                                    </div>
+                                                 <div>
+                                            <button type="button" class="btn btn-success" >Calculate cost</button>
+                                            </div><br>
+
+                                                 <button type="submit" class="btn btn-primary">Submit</button>
+
+
+
+                                                </form>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <form class="needs-validation">
+                                                    <div class="col-md-6">
+
+                                        <label>GST</label>
+                                        <input type="Number" class="form-control" >
+                                </div>
+
+                                                    <div class="valid-feedback">
+                                                            GST is required!
+                                                        </div>
+                                                    <div class="row">
+                                <div class="col-md-4">
+                                        <label>Length</label>
+                                        <input type="Number" class="form-control" >
+                                </div>
+                                                        <div class="valid-feedback">
+                                                            Length is required!
+                                                        </div>
+                                <div class="col-md-4">
+
+                                        <label>Width</label>
+                                        <input type="Number" class="form-control" >
+                                </div>
+                                                        <div class="valid-feedback">
+                                                            Width is required!
+                                                        </div>
+                                <div class="col-md-4">
+
+                                        <label>Height</label>
+                                        <input type="Number" class="form-control" ><br>
+                                </div>
+                            </div>
+                                                    <div class="valid-feedback">
+                                                            Height is required!
+                                                        </div>
+
+
+
+                                <div class="col-md-6">
+
+                                        <label>Volumetric Weight</label>
+                                        <input type="Number" class="form-control" >
+                                </div><br><br><br>
+
+
+
+                                                    <div><br><br>
+
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        {% endblock content %}
+{% block javascripts %}
+  <script>
+  $('#multiFormSelect1').selectpicker();
+  </script>
+{% endblock javascripts %}
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,210 @@
+{% extends "layouts/base.html" %}
+{% load static %}
+
+{% block title %} Charts from Load {% endblock %}
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}
+    <link rel="stylesheet" href="{% static 'assets/plugins/chart-morris/css/morris.css' %}">
+{% endblock stylesheets %}
+
+{% block content %}
+
+    <div class="pcoded-content">
+        <div class="pcoded-inner-content">
+            <!-- [ breadcrumb ] start -->
+
+            <!-- [ breadcrumb ] end -->
+            <div class="main-body">
+                <div class="page-wrapper">
+
+                    <!-- [ Main Content ] start -->
+                    <div class="row">
+
+                        <!-- [ Morris Chart ] start -->
+                        <div class="col-xl-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5>Bar Chart - Information is rendered after a data load (admin section)</h5>
+                                </div>
+                                <div class="card-block">
+
+                                    <!-- DIV injected with Dynamic content -->
+                                    <div id="morris-bar-chart" style="height:300px"></div>
+                                    <!-- DIV End -->
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- [ Morris Chart ] end -->
+
+                        <!-- HELP Section start -->
+                        <div class="col-xl-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5>HELP</h5>
+                                </div>
+                                <div class="card-block">
+
+<p>
+    Above chart is generated dinamically based on the information gathered by get_sales_report)(), a inner method defined by Sale model
+    <br />
+    {% if user.is_superuser %}
+        To update the charts, please update the <a target="_blank" href="/admin/app/sale/">SALES</a> table information and refresh the page.
+    {% else %}
+        To update the charts, please authenticate as admin, update the SALES table information and refresh the page.
+        <br />
+        Note: Admin account can be created using the <strong>createsuperuser</strong> command.
+    {% endif %}
+</p>
+
+<br />
+<h5>The Routing Settings</h5>
+<hr />
+<p>
+    This page has a simple rule defined in the 
+    <a target="_blank" href="https://github.com/app-generator/django-simple-charts/blob/master/app/urls.py">app/urls.py</a> file:
+<br />
+<pre>
+<code class="python">
+# Contents of file: app/urls.py
+
+urlpatterns = [
+...
+    # Charts from Input
+    path('charts-load'  , views.charts_load,  name='charts-load'  ),
+...
+]
+</code>
+</pre>
+
+<br />
+<h5>Render Flow</h5>
+<hr />
+<p>
+The code that render this page use the information from SALES table.
+<br />
+The <a target="_blank" 
+        href="https://github.com/app-generator/django-simple-charts/blob/master/app/models.py">model</a>
+comes with a inner method that selects all rows: <strong>get_sales_report()</strong>. 
+<br />
+Once the SALES rows are selected, controller read the page template and inject the information.   
+<br />
+<br />
+Source: <a target="_blank" href="https://github.com/app-generator/django-simple-charts/blob/master/app/views.py">app/views.py</a> 
+- <strong>charts_load()</strong>:
+<br />
+<pre>
+<code class="python">
+# Partial content from file: app/views.py
+def charts_load(request):
+    context = {'segment': 'charts_from_load'}
+    html_template = loader.get_template('charts-from-load.html')
+
+    # -----------------------------------------------
+    # Extract data from Sale table 
+    # -----------------------------------------------
+
+    sales, labels = Sale.get_sales_report()
+    data = [
+        {
+            'y': year,
+            'a': '{:.2f}'.format(sales[year].get('A')),
+            'b': '{:.2f}'.format(sales[year].get('B')),
+            'c': '{:.2f}'.format(sales[year].get('C'))
+        } for year in sales
+    ]
+
+    context['chart_data'] = json.dumps({
+        'element': 'morris-bar-chart',
+        'data': data,
+        'xkey': 'y',
+        'barSizeRatio': 0.70,
+        'barGap': 3,
+        'resize': True,
+        'responsive': True,
+        'ykeys': ['a', 'b', 'c'],  # it can be custom
+        'labels': labels,
+        'barColors': ['0-#1de9b6-#1dc4e9', '0-#899FD4-#A389D4', '#04a9f5']  # it can be custom
+    })
+
+    return HttpResponse(html_template.render(context, request))
+</code>
+</pre>
+
+<br />
+<h5>Database Model - SALES</h5>
+<hr />
+<p>
+The <a target="_blank" 
+        href="https://github.com/app-generator/django-simple-charts/blob/master/app/models.py">model</a>
+comes with a inner method that selects all rows: <strong>get_sales_report()</strong>. 
+<br />
+<br />
+<pre>
+<code class="python">
+class Sale(models.Model):
+    amount = models.FloatField(_('amount'), db_index=True)
+    product_name = models.CharField(_('product name'), max_length=40, db_index=True)
+    created_time = models.DateTimeField(verbose_name=_('creation On'), db_index=True)
+    updated_time = models.DateTimeField(verbose_name=_('modified On'), auto_now=True)
+
+    class Meta:
+        verbose_name = _('sale')
+        verbose_name_plural = _('sales')
+
+    @classmethod
+    def get_sales_report(cls):
+        annotates = {'total_amount': Sum('amount')}
+
+        sales = cls.objects.annotate(
+            year=TruncYear('created_time')
+        ).values('product_name', 'year').order_by().annotate(**annotates)
+
+        data = {}
+        for sale in sales:
+
+            if sale['year'].year not in data:
+                data[sale['year'].year] = {}
+
+            data[sale['year'].year][sale['product_name']] = sale['total_amount']
+
+        labels = list(sales.values_list('product_name', flat=True).distinct())
+        return data, labels
+</code>
+</pre>
+
+<br />
+<h5>HTML File</h5>
+<hr />
+<p>
+    The chart data is rendered using <a target="_blank" href="https://morrisjs.github.io/morris.js/">Morris JS</a>, 
+    a popular open-source chart library.  
+    <br />
+    The source file 
+    <a target="_blank" 
+       href="https://github.com/app-generator/django-simple-charts/blob/master/core/templates/charts-from-load.html">core/templates/charts-from-load.html</a>.
+</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- HELP Section END -->
+
+                    </div>
+                    <!-- [ Main Content ] end -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}
+    <script src="{% static 'assets/plugins/chart-morris/js/raphael.min.js' %}"></script>
+    <script src="{% static 'assets/plugins/chart-morris/js/morris.min.js' %}"></script>
+    <script src="{% static 'app_assets/js/scripts.js' %}"></script>
+    <script>
+        SetChartBar({{ chart_data|safe }});
+    </script>
+{% endblock javascripts %}

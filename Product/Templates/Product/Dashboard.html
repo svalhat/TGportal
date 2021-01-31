@@ -1,0 +1,61 @@
+
+{% extends "layouts/base.html" %}
+
+{% block title %}
+    Dashboard
+{% endblock %}
+
+{% block content %}
+    <div class="pcoded-content">
+        <div class="pcoded-inner-content">
+            <div class="main-body">
+                <div class="page-wrapper">
+                    <div class="card">
+                         <div class="card-body">
+                            <div class="panel-header bg-primary-gradient"> <!-- 1-->
+                                <div class="page-inner py-5">
+                                    <div class="d-flex align-items-left align-items-md-center flex-column flex-md-row">
+                                        <div class="container">
+                                            <h3 class="mt-5 text-info">Dashboard</h3>
+                                        </div>
+                                        <div class="ml-md-auto py-2 py-md-0">
+                                            <a href="/charts-load" class="btn btn-primary btn-round">Upload Product</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-deck">
+                                  <div class="card">
+                                        <div class="card-body">
+                                                <a href="/charts-load" class="nav-link"><h5 class="card-title"><span class="pcoded-micon">
+                                    <i class="feather icon-package text-c-green f-30 m-r-10"></i></span> Products </h5></a>
+                                          <p class="row d-flex align-items-center"><h5> (5)</h5> </p>
+                                          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                                        </div>
+                                  </div>
+                                  <div class="card">
+                                        <div class="card-body">
+                                            <a href="/charts-load" class="nav-link"><h5 class="card-title"><span class="pcoded-micon">
+                                    <i class="feather icon-shopping-cart text-c-red f-30 m-r-10"></i></span> Orders </h5></a>
+                                            <p class="card-text"><h5> (10) </h5> </p>
+                                            <p class="card-text"><h6> Completed/ Pending/ Cancelled </h6> </p>
+                                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                                        </div>
+                                  </div>
+                                  <div class="card">
+                                        <div class="card-body">
+                                            <a href="/charts-load" class="nav-link"><h5 class="card-title"><span class="pcoded-micon">
+                                    <i class="feather icon-trending-up text-c-green f-30 m-r-10"></i></span> Total Sell (Monthly) </h5></a>
+                                            <p class="card-text"><h5> Rs.1500 </h5> </p>
+                                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                                        </div>
+                                  </div>
+                            </div>
+                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock content %}

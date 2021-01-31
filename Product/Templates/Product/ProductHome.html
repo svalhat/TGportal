@@ -1,0 +1,201 @@
+{% extends "layouts/base.html" %}
+{% load static %}
+
+{% block title %} Dashboard {% endblock %}
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}
+    <link rel="stylesheet" href="{% static 'assets/plugins/chart-morris/css/morris.css' %}">
+{% endblock stylesheets %}
+
+{% block content %}
+                                <button type="button" class="btn btn-primary" style="float:right;">View All Products</button>
+
+
+                        <!-- [ rating list ] end-->
+                        <div class="col-xl-8 col-md-12 m-b-30">
+                            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link" id="home-tab" data-toggle="tab" href="#home" role="tab"
+                                       aria-controls="home" aria-selected="false"></a>
+                                    <h4>Product</h4><br>
+                                </li>
+                            </ul>
+                                <div class="card-block">
+                                <button type="button" class="btn btn-success"  data-toggle="tooltip" >
+                                    <a href="http://127.0.0.1:8000/addeditproduct/">Add Product</a></button>
+                                    <button type="button" class="btn btn-warning"  data-toggle="tooltip">
+                                        <a href="http://127.0.0.1:8000/addeditproduct/">Edit Product</a></button>
+
+                                <button type="button" class="btn btn-danger" data-toggle="tooltip">Delete Product</button>
+
+                            </div>
+
+
+                              </div>
+<div class="search-field mt-2 row align-items-start">
+			<div class="col-5">
+				<div class="input-group">
+					<span class="input-group-text"><i class="fas fa-search"></i></span>
+					<input class="form-control form-control-sm" placeholder="Search here.." type="" name="">
+				</div>
+			</div>
+		</div><br><br>
+                                <div class="tab-pane fade active show" id="profile" role="tabpanel"
+                                     aria-labelledby="profile-tab">
+                                    <table class="table table-hover">
+                                        <thead>
+                                        <tr>
+                                            <th scope="col"><input type="checkbox" name=""></th>
+
+                                           <!-- <th>Product Name</th>
+                                            <th>Product Cost</th>
+                                            <th>Quantity</th>
+                                            <th>Status</th>-->
+                                            <th scope="col">Sr. No.</th>
+						<th scope="col">Product Name</th>
+						<th scope="col">User ID</th>
+						<th scope="col">Catagory ID</th>
+						<th scope="col">Description</th>
+						<th scope="col">GST</th>
+						<th scope="col">Self Delivery Cost</th>
+						<th scope="col">Courier Self</th>
+						<th scope="col">Length</th>
+						<th scope="col">Width</th>
+						<th scope="col">Height</th>
+						<th scope="col">Delivery Partner Cost</th>
+						<th scope="col">Product Cost</th>
+					</tr>
+
+
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr><td><input type="checkbox"  id="exampleCheck1"></td>
+                                                                                        <td>1</td>
+
+
+                                            <td>
+                                                <h6 class="m-0"><img class="rounded-circle  m-r-10" >Sports Shoes</h6>
+                                            </td>
+                                            <td>
+                                                <h6 class="m-0">10000</h6>
+                                            </td>
+                                            <td>
+                                                <h6 class="m-0">5</h6>
+                                            </td>
+                                            <td>
+                                                <h6 class="m-0 text-c-red">1</h6>
+                                            </td>
+                                            <td>100</td>
+						                    <td>100</td>
+                                            <td>100</td>
+						                    <td>1100</td>
+						                    <td>7</td>
+						                    <td>6</td>
+                                            <td>5</td>
+						                    <td>1000</td>
+
+
+
+                                            <td class="text-right"><i class="fas fa-circle text-c-red f-10"></i></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox"  id="exampleCheck1"></td>
+                                                                                        <td>2</td>
+
+                                            <td>
+                                                <h6 class="m-0"><img class="rounded-circle m-r-10" >Lock</h6>
+                                            </td>
+                                            <td>
+                                                <h6 class="m-0">1000</h6>
+                                            </td>
+                                            <td>
+                                                <h6 class="m-0">4</h6>
+                                            </td>
+                                            <td>
+                                                <h6 class="m-0 text-c-green">2</h6>
+                                            </td>
+                                            <td>100</td>
+						                    <td>50</td>
+                                            <td>30</td>
+						                    <td>10</td>
+						                    <td>5</td>
+						                    <td>4</td>
+                                            <td>3</td>
+						                    <td>50</td>
+                                            <td class="text-right"><i class="fas fa-circle text-c-green f-10"></i></td>
+                                        </tr>
+                                        <tr><td><input type="checkbox"  id="exampleCheck1"></td>
+                                                                                        <td>3</td>
+
+                                            <td>
+                                                <h6 class="m-0"><img class="rounded-circle  m-r-10" >Books</h6>
+                                            </td>
+                                            <td>
+                                                <h6 class="m-0">2000</h6>
+                                            </td>
+                                            <td>
+                                                <h6 class="m-0">6</h6>
+                                            </td>
+                                            <td>
+                                                <h6 class="m-0 text-c-green">3</h6>
+                                            </td>
+                                            <td>10</td>
+						                    <td>100</td>
+                                            <td>50</td>
+						                    <td>55</td>
+						                    <td>23</td>
+						                    <td>23</td>
+                                            <td>11</td>
+						                    <td>100</td>
+
+                                            <td class="text-right"><i class="fas fa-circle text-c-green f-10"></i></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox"  id="exampleCheck1"></td>
+                                                                                        <td>4</td>
+
+                                            <td>
+                                                <h6 class="m-0"><img class="rounded-circle  m-r-10" >Shirt</h6>
+                                            </td>
+                                            <td>
+                                                <h6 class="m-0">4000</h6>
+                                            </td>
+                                            <td>
+                                                <h6 class="m-0">2</h6>
+                                            </td>
+                                            <td>
+                                                <h6 class="m-0 text-c-purple">4</h6>
+                                            </td>
+                                            <td>100</td>
+						                    <td>50</td>
+                                            <td>60</td>
+						                    <td>10</td>
+						                    <td>50</td>
+						                    <td>4</td>
+                                            <td>5</td>
+						                    <td>100</td>
+
+                                            <td class="text-right"><i class="fas fa-circle text-c-purple f-10"></i></td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+
+                    <!-- [ Main Content ] end -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}
+    <script src="{% static 'assets/plugins/chart-morris/js/raphael.min.js' %}"></script>
+    <script src="{% static 'assets/plugins/chart-morris/js/morris.min.js' %}"></script>
+    <script src="{% static 'app_assets/js/scripts.js' %}"></script>
+    <script>
+        SetChartBar({{ chart_data|safe }});
+    </script>
+{% endblock javascripts %}

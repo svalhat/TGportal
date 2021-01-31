@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sign Up</title>
+
+    <!-- Font Icon -->
+    <link rel="stylesheet" href="static/fonts/material-icon/css/material-design-iconic-font.min.css">
+
+    <!-- Main css -->
+    <link rel="stylesheet" href="static/css/style.css">
+     <!--toggle password-->
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-show-password/1.0.3/bootstrap-show-password.min.js"></script>
+</head>
+<body>
+{% load static %}
+{% csrf_token %}
+    <div class="main">
+
+        <!-- Sign up form -->
+        <section class="signup">
+            <div class="container">
+                <div class="signup-content">
+                    <div class="signup-form">
+                        <h2 class="form-title">Sign up</h2>
+                        <br method="POST" class="register-form" id="register-form">
+                            <div class="form-group">
+                                <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                                <input type="text" name="name" id="name" placeholder="Your Name"/>
+                            </div>
+                             <div class="form-group">
+                                <label for="mobile_no"><i class="zmdi zmdi-phone"></i></label>
+                                <input type="number" name="mobile_no" id="mobile_no" placeholder="Your mobile_no"/>
+                            </div>
+                        <!--<div class="form-group">-->
+                            <input type="button" name="check1" value="same as above" onclick="copyTextValue();"/>
+                           <!-- </div>-->
+                            <div class="form-group">
+                                <label for="whatsapp_no"><i class="zmdi zmdi-whatsapp"></i></label>
+                                <input type="number" name="whatsapp_no" id="whatsapp_no" placeholder="Your whatsapp_no"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="email"><i class="zmdi zmdi-email"></i></label>
+                                <input type="email" name="email" id="email" placeholder="Your Email"/>
+                            </div>
+                           <!-- <div class="form-group">
+                                <label for="city"><i class="zmdi zmdi-city"></i></label>
+                                <input type="text" name="city" id="city" placeholder="Your city"/>
+                            </div>-->
+                        <div class="form-group">
+                                <label for="city"><i class="zmdi zmdi-city"></i></label>
+                                <input list="citybrowse" name="city" id="city" placeholder="Your city" required>
+
+                                <datalist id="citybrowse">
+                                    <option value="Pune">
+                                    <option value="Nashik">
+                                    <option value="Mumbai">
+                                    <option value="Pimpri-Chinchwd">
+                                    <option value="Thane">
+                                 </datalist>
+                            </div>
+                            <div class="form-group">
+                                <label for="group_name"><i class="zmdi zmdi-group"></i></label>
+                                <input list="groupbrowse" name="group_name" id="group_name" placeholder="Your group" required>
+
+                                <datalist id="groupbrowse">
+                                    <option value="1">
+                                    <option value="2">
+                                    <option value="3">
+                                    <option value="4">
+                                    <option value="5">
+                                 </datalist>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="pass"><i class="zmdi zmdi-lock"></i></label>
+                                <input type="password" name="pass" id="pass" minlength="8" data-toggle="password" placeholder="Password"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="re_pass"><i class="zmdi zmdi-lock-outline"></i></label>
+                                <input type="password" name="re_pass" id="re_pass" minlength="8"  placeholder="Repeat your password"/>
+                            </div>
+                            <div class="form-group">
+                                <!-- <img src="static/images/seller.jpg" alt="seller image" height="100px" width="100px"><br>-->
+                            <label for="r" class="label-agree-term">Are you a seller? :</label>
+
+
+
+                            </div>
+                            <div class="form-group">
+                              <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                              <label class="form-check-label" for="exampleRadios1">
+                                Yes
+                              </label>
+                            </div>
+                            <div class="form-group">
+                              <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                              <label class="form-check-label" for="exampleRadios2">
+                                No
+                              </label>
+                            </div>
+
+
+                                <div class="form-group">
+                                <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" />
+                                <label for="agree-term" class="label-agree-term"><span><span></span></span>I agree all statements in  <a href="#" class="term-service">Terms of service</a></label>
+                            </div>
+                            <div class="form-group form-button" onclick="{% url 'login' %}">
+                                <input type="submit" name="signup" id="signup" class="form-submit" value="Register"/>
+
+                            </div>
+                        </form>
+                    </div>
+                    <div class="signup-image">
+                        <figure><img src="static/images/signup-image.jpg" alt="sing up image"></figure>
+                        <a href="#" class="signup-image-link">I am already member</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+    </div>
+
+    <!-- JS -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="js/main.js"></script>
+<!--form submission using ajax-->
+    <script type="text/javascript" href="http://127.0.0.1:8000/static/js/material.js"></script>
+    <!--script type="text/javascript" src="static/vendor/jquery/jquery.min.js"></script-->
+    <script type="text/javascript">
+        $(document).on('submit','#register-form',function(e){
+                        e.preventDefault();
+                        $.ajax({
+                        type:'POST',
+                        url:'sign_up',
+                        data: "{}",
+                        dataType: "json",
+
+                        success: function(data) {
+                            alert(data[1]);
+                        },
+                        error: function(data){
+                            alert("fail");
+                        }
+                     });
+                  });
+            </script>
+<script type="text/javascript">
+
+    function copyTextValue() {
+    var text1 = document.getElementById("mobile_no").value;
+    document.getElementById("whatsapp_no").value = text1;
+   }
+</script>
+</body>
+</html>

@@ -1,0 +1,215 @@
+{% extends "layouts/base.html" %}
+
+{% block title %}
+   Buyer Profile
+{% endblock %}
+
+{% block heading %}
+    <h1> Buyer Profile</h1>
+{% endblock %}
+
+{% block content %}
+    <div class="pcoded-content">
+        <div class="pcoded-inner-content">
+            <div class="page-header">
+            <div class="page-block">
+                <div class="row align-items-center">
+                    <div class="col-md-12">
+                        <div class="page-header-title">
+                            <h5 class="m-b-10">Buyer Profile</h5>
+                        </div>
+                        <ul class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="/"><i class="feather icon-home"></i></a></li>
+                            <li class="breadcrumb-item"><a href="javascript:">Buyer</a></li>
+                            <li class="breadcrumb-item"><a href="javascript:">Buyer Profile</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="main-body">
+            <div class="page-wrapper">
+                <div class="row">
+                    {% csrf_token %}
+                    <div class="col-sm-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5>Edit Profile</h5>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" id="headingOne">
+                                    <h5 class="mb-0">
+                                        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                            Billing Address
+                                        </button>
+                                    </h5>
+                                </div>
+                                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <form class="needs-validation">
+                                                    <div class="form-group">
+                                                        <label for="colFormLabelSm">Name</label>
+                                                        <input type="name" class="form-control" id="colFormLabelSm" aria-describedby="nameHelp" placeholder="" required>
+                                                    <!--    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+                                                        <div class="valid-feedback">
+                                                            Name is required!
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="exampleFormControlTextarea1">Address</label>
+                                                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" required></textarea>
+                                                        <div class="valid-feedback">
+                                                            Address is required!
+                                                        </div>
+                                                    </div>
+                                                    <button type="submit" class="btn btn-primary">Save</button>
+                                                </form>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <form class="needs-validation">
+                                                    <div class="form-group">
+                                                        <label for="validationCustom03">City</label>
+                                                        <select class="form-control" id="validationCustom03" required>
+                                                            <option> Nothing Selected</option>
+                                                            <option>Pune</option>
+                                                            <option>Mumbai</option>
+                                                            <option>Nashik</option>
+                                                            <option>Nagpur</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="valid-feedback">
+                                                        City Name is required!
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="exampleFormControlSelect1">Pin Code</label>
+                                                        <select class="form-control" id="ControlSelect1" required>
+                                                            <option>Nothing Selected</option>
+                                                            <option>411001</option>
+                                                            <option>411002</option>
+                                                            <option>411003</option>
+                                                            <option>411004</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="valid-feedback">
+                                                        Pin Code is required!
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card">
+                                <div class="card-header" id="headingTwo">
+                                    <h5 class="mb-0">
+                                        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                                            Shipping Address
+                                        </button>
+                                    </h5>
+                                </div>
+                                <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordion">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <form>
+                                                    <div class="custom-control custom-checkbox">
+                                                        <input type="checkbox" class="custom-control-input" id="customCheck1">
+                                                        <label class="custom-control-label" for="customCheck1">Same as above</label>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="colFormLabelSm">Name</label>
+                                                        <input type="name" class="form-control" id="colFormLabel" aria-describedby="nameHelp" placeholder="" required>
+                                                    <!--    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+                                                        <div class="valid-feedback">
+                                                            Name is required!
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label for="exampleFormControlTextarea1">Address</label>
+                                                        <textarea class="form-control" id="exampleFormControlarea1" rows="3" required></textarea>
+                                                        <div class="valid-feedback">
+                                                            Address is required!
+                                                        </div>
+                                                    </div>
+                                                    <button type="submit" class="btn btn-primary">Save</button>
+                                                </form>
+                                            </div>
+                                            <div class="col-md-6">
+                                                    <br>
+                                                    <form>
+                                                        <div class="form-group">
+                                                            <label for="exampleFormControlSelect1">City</label>
+                                                            <select class="form-control" id="exampleControlSelect1">
+                                                                <option>Nothing Selected</option>
+                                                                <option>Pune</option>
+                                                                <option>Mumbai</option>
+                                                                <option>Nashik</option>
+                                                                <option>Nagpur</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="exampleFormControlSelect1">Pin Code</label>
+                                                            <select class="form-control" id="exampleFormControlSelect1">
+                                                                <option>Nothing Selected</option>
+                                                                <option>411001</option>
+                                                                <option>411002</option>
+                                                                <option>411003</option>
+                                                                <option>411004</option>
+                                                            </select>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="card">
+                                    <div class="card-header" id="headingThree">
+                                        <h5 class="mb-0">
+                                            <button class="btn btn-link" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+                                                Interest Areas
+                                            </button>
+                                        </h5>
+                                    </div>
+                                    <div id="collapseThree" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordion">
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <form>
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <select class="selectpicker" multiple id="multiFormSelect1">
+                                                                    <option>Clothing</option>
+                                                                    <option>Jwellery</option>
+                                                                    <option>Food</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <br>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                 </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock content %}
+{% block javascripts %}
+  <script>
+  $('#multiFormSelect1').selectpicker();
+  </script>
+
+{% endblock javascripts %}
+___________________________________________________

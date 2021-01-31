@@ -1,0 +1,131 @@
+{% extends "layouts/base.html" %}
+{% load static %}
+
+{% block title %} Dashboard {% endblock %}
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}
+    <link rel="stylesheet" href="{% static 'assets/plugins/chart-morris/css/morris.css' %}">
+{% endblock stylesheets %}
+
+{% block content %}
+
+<div class="card-block">
+                     <div class="col-xl-8 col-md-12 m-b-30">
+                            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link" id="home-tab" data-toggle="tab" href="#home" role="tab"
+                                       aria-controls="home" aria-selected="false"></a>
+                                       <h4>Orders</h4>
+                                </li>
+                     </div>
+    <div class="search-field mt-2 row align-items-start">
+			<div class="col">
+				<div class="input-group">
+					<span class="input-group-text"><i class="fas fa-search"></i></span>
+					<input class="form-control form-control-sm" placeholder="Search here.." type="" name="">
+				</div>
+			</div>
+			<div class="col">
+				<button type="button" class="btn btn-primary">View Selected</button>
+				<button type="button" class="btn btn-danger">Delete Selected</button>
+			</div>
+		</div>
+                                <div class="tab-pane fade active show" id="profile" role="tabpanel"
+                                     aria-labelledby="profile-tab">
+                                    <table class="table table-hover">
+                                        <thead>
+                                        <tr>
+                                            <th scope="col"><input type="checkbox" name=""></th>
+
+                                            <th>Date of order</th>
+                                            <th>Product Name</th>
+                                            <th>Quantity</th>
+                                            <th>Status</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <th scope="col"><input type="checkbox" name=""></th>
+
+                                            <td>
+                                                <h6 class="m-0"><img class="rounded-circle  m-r-10">5/7/2019</h6>
+                                            </td>
+                                            <td>
+                                                <h6 class="m-0">Sports Shoes</h6>
+                                            </td>
+                                            <td>
+                                                <h6 class="m-0">5</h6>
+                                            </td>
+                                            <td>
+                                                <h6 class="m-0 text-c-red">Missed</h6>
+                                            </td>
+                                            <td class="text-right"><i class="fas fa-circle text-c-red f-10"></i></td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="col"><input type="checkbox" name=""></th>
+
+                                            <td>
+                                                <h6 class="m-0"><img class="rounded-circle m-r-10" >6/6/2019</h6>
+                                            </td>
+                                            <td>
+                                                <h6 class="m-0">Lock</h6>
+                                            </td>
+                                            <td>
+                                                <h6 class="m-0">4</h6>
+                                            </td>
+                                            <td>
+                                                <h6 class="m-0 text-c-green">Done</h6>
+                                            </td>
+                                            <td class="text-right"><i class="fas fa-circle text-c-green f-10"></i></td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="col"><input type="checkbox" name=""></th>
+
+                                            <td>
+                                                <h6 class="m-0"><img class="rounded-circle  m-r-10" >8/8/2019</h6>
+                                            </td>
+                                            <td>
+                                                <h6 class="m-0">Books</h6>
+                                            </td>
+                                            <td>
+                                                <h6 class="m-0">6</h6>
+                                            </td>
+                                            <td>
+                                                <h6 class="m-0 text-c-green">Done</h6>
+                                            </td>
+                                            <td class="text-right"><i class="fas fa-circle text-c-green f-10"></i></td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="col"><input type="checkbox" name=""></th>
+
+                                            <td>
+                                                <h6 class="m-0"><img class="rounded-circle  m-r-10" >9/9/2019</h6>
+                                            </td>
+                                            <td>
+                                                <h6 class="m-0">Shirt</h6>
+                                            </td>
+                                            <td>
+                                                <h6 class="m-0">2</h6>
+                                            </td>
+                                            <td>
+                                                <h6 class="m-0 text-c-purple">Delayed</h6>
+                                            </td>
+                                            <td class="text-right"><i class="fas fa-circle text-c-purple f-10"></i></td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+
+                                </div>
+                             			<div class="col">
+
+                                <button type="button" class="btn btn-primary"  data-toggle="tooltip" >View</a></button>
+
+                                <button type="button" class="btn btn-secondary"  data-toggle="tooltip">Total sale</button>
+                                <button type="button" class="btn btn-success" data-toggle="tooltip">Download</button>
+                                        </div>
+                            </div>
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}

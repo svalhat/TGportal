@@ -1,0 +1,216 @@
+{% extends "layouts/base.html" %}
+
+{% block title %}
+   Seller Profile
+{% endblock %}
+
+{% block heading %}
+<h1 xmlns="http://www.w3.org/1999/html">Seller Profile</h1>
+{% endblock %}
+
+{% block content %}
+    <div class="pcoded-content">
+        <div class="pcoded-inner-content">
+            <div class="page-header">
+            <div class="page-block">
+                <div class="row align-items-center">
+                    <div class="col-md-12">
+                        <div class="page-header-title">
+                            <h5 class="m-b-10">Seller Profile</h5>
+                        </div>
+                        <ul class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="/"><i class="feather icon-home"></i></a></li>
+                            <li class="breadcrumb-item"><a href="javascript:">Seller</a></li>
+                            <li class="breadcrumb-item"><a href="javascript:">Seller Profile</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            </div>
+            <div class="main-body">
+                <div class="page-wrapper">
+                    <div class="row">
+                            {% csrf_token %}
+                            <div class="col-sm-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                       <!-- <div class="card card-default"> -->
+                                    <h5>Edit Profile</h5>
+                                    </div>
+                                    <form class="needs-validation" id="businessForm">
+                                    <div class="card">
+                                            <div class="card-header" id="headingOne">
+                                                <h5 class="mb-0">
+                                                    <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                                        Business Details
+                                                    </button>
+                                                </h5>
+                                            </div>
+                                            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                                                <div class="card-body">
+                                                    <div class="row">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label for="businessName">Business Name</label>
+                                                                    <input type="name" class="form-control" id="businessName" aria-describedby="nameHelp" placeholder="">
+                                                                </div>
+                                                                <div class="invalid-feedback" id="businessValMsg">
+                                                                    Business Name is required!
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label for="addressName">Address</label>
+                                                                    <textarea class="form-control" id="addressName" rows="3"></textarea>
+                                                                </div>
+                                                                <div class="invalid-feedback" id="addressValMsg">
+                                                                    Address is required!
+                                                                </div>
+                                                                <div class="form-group">
+                                                                      <label for="contactNumber">Contact Number</label>
+                                                                      <input class="form-control" type="tel" id="contactNumber" aria-describedby="numberHelp" placeholder="">
+                                                                </div>
+                                                                <div class="invalid-feedback" id="contactValMsg">
+                                                                    Contact Number is required!
+                                                                </div>
+                                                           </div>
+                                                           <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label for="cityName">City</label>
+                                                                    <select class="form-control" id="cityName" >
+                                                                        <option value="" selected disabled>Please select</option>
+                                                                        <option value="1">Pune</option>
+                                                                        <option value="2">Mumbai</option>
+                                                                        <option value="3">Pimpri</option>
+                                                                        <option value="4">Nashik</option>
+                                                                    </select>
+                                                                 </div>
+                                                                 <div class="invalid-feedback" id="cityValMsg">
+                                                                        City Name is required!
+                                                                 </div>
+                                                               <div class="form-group">
+                                                                    <label for="pinName">Pin Code</label>
+                                                                    <select class="form-control" id="pinName" >
+                                                                       <option value="" selected disabled>Please select</option>
+                                                                        <option value="1">411001</option>
+                                                                        <option value="2">411002</option>
+                                                                        <option value="3">411003</option>
+                                                                        <option value="4">411004</option>
+                                                                    </select>
+                                                               </div>
+                                                               <div class="invalid-feedback" id="pinValMsg">
+                                                                    Pin Code is required!
+                                                               </div>
+                                                           </div>
+                                                    </div>
+                                                </div>
+                                             </div>
+                                                <div class="card-header" id="headingTwo">
+                                                    <h5 class="mb-0">
+                                                        <button type="button" class="btn btn-link" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                                                            Bank Details
+                                                        </button>
+                                                    </h5>
+                                                </div>
+                                                <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordion" >
+                                                    <div class="card-body">
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label for="colFormLabelSm">Bank Name</label>
+                                                                    <input type="name" class="form-control" id="colFormLabelSm" aria-describedby="nameHelp" placeholder="">
+                                                                    <div class="valid-feedback">
+                                                                        Bank Name is required!
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label for="colFormLabelSm1">Branch Name</label>
+                                                                    <input type="name" class="form-control" id="colFormLabelSm1" aria-describedby="nameHelp" placeholder="">
+                                                                    <div class="valid-feedback">
+                                                                        Branch Name is required!
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label for="colFormLabelSm2">UPI Details</label>
+                                                                    <input type="name" class="form-control" id="colFormLabelSm2" aria-describedby="nameHelp" placeholder="optional">
+                                                                    <div class="valid-feedback">
+                                                                        UPI Details is required!
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label for="colFormLabel">Account Number</label>
+                                                                    <input type="name" class="form-control" id="colFormLabel" aria-describedby="nameHelp" placeholder="">
+                                                                    <div class="valid-feedback">
+                                                                        Account Number is required!
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label for="colFormSm1">IFSC Code</label>
+                                                                    <input type="name" class="form-control" id="colFormSm1" aria-describedby="nameHelp" placeholder="">
+                                                                    <div class="valid-feedback">
+                                                                        IFSC Code is required!
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                         </div>
+                                                        </div>
+                                                   </div>
+                                                   <div class="card-header" id="headingSave">
+                                                        <h5 class="mb-0">
+                                                             <button type="submit" class="btn btn-primary">Submit</button>
+                                                        </h5>
+                                                    </div>
+                                            </div>
+                                     </form>
+                                    <div class="card">
+                                        <div class="card-header" id="headingThree">
+                                            <h5 class="mb-0">
+                                                <button class="btn btn-link" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+                                                    Interest Areas
+                                                </button>
+                                            </h5>
+                                        </div>
+                                        <div id="collapseThree" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordion">
+                                            <div class="card-body">
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <form>
+                                                            <div class="row">
+                                                                <div class="col-md-6">
+                                                                    <select class="selectpicker" multiple id="multiFormSelect1">
+                                                                        <option>Clothing</option>
+                                                                        <option>Jwellery</option>
+                                                                        <option>Food</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                            <br>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                        <div class="card-header" id="headingFour">
+                                            <div class="card-body">
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <div class="row">
+                                                            <a href="/update-password" class="btn btn-primary btn-round ">Password Update</a>
+                                                            <a href="/charts-load" class="btn btn-primary btn-round ">Notification Settings</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock content %}
