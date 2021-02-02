@@ -62,6 +62,7 @@ urlpatterns = [
     path('sellerprofile/', seller.views.sellerprofile),
     path('sellerorder/', seller.views.sellerorder),
     path('orderidseller/',seller.views.orderidseller),
+    path('update password', seller.views.updatepassword, name='update password'),
 
 ]
 
